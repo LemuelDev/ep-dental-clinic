@@ -27,7 +27,7 @@
         </form>
       </dialog>
 
-    <section class="flex h-auto max-lg:grid ">
+    <section class="flex min-h-screen max-lg:grid ">
         
         
             {{-- Clinic logo section --}}
@@ -87,7 +87,7 @@
                             <input type="number" name="phone_number" id="phone_number"  placeholder="Phone number" class="rounded-md px-4 py-3 bg-white placeholder:text-gray-400">
                         </div>
 
-                        <div class="grid">
+                        {{-- <div class="grid">
                             <label for="current_medication" class="text-lg text-white tracking-tight">Do you have medical history?</label>
                             <select name="current_medication" id="current_medication" class="rounded-md px-4 py-3 bg-gray-200 placeholder:text-gray-800">
                                 <option value="" disabled selected>Medical History</option>
@@ -99,7 +99,7 @@
                         <div class="grid">
                             <label for="medical_description" class="text-lg text-white tracking-tight">Specify here if yes:</label>
                             <input type="text" name="medical_description" id="medical_description"  placeholder="Medical Description" class="rounded-md px-4 py-3 bg-white placeholder:text-gray-400">
-                        </div>
+                        </div> --}}
 
                         
                         <div class="grid">
@@ -128,8 +128,7 @@
                         <button class="btn btn-primary mt-4 text-md text-lg tracking-wide sm:col-span-2">SIGN UP</button>
 
                         <div class="text-center grid sm:col-span-2">
-                            <a href="#" class="text-lg text-white tracking-wide hover:text-blue-500 py-3">Forgot Password?</a>
-                            <a href="#" class="text-lg text-white tracking-wide hover:text-blue-500 py-1">Already have an account? Login </a>
+                            <a href="{{route('login')}}" class="text-lg text-white tracking-wide hover:text-blue-500 py-1">Already have an account? Login </a>
                         </div>
 
                     </form>

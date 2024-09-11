@@ -22,11 +22,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function applyTheme(theme) {
         if (theme === 'dark') {
-            sidebar.classList.add('bg-[#191919', 'shadow-2xl');
+            sidebar.classList.add('bg-[#191919]', 'shadow-2xl');
             sidebar.classList.remove('bg-[#FFF7F1]');
         } else {
             sidebar.classList.add('bg-[#FFF7F1]');
-            sidebar.classList.remove('bg-[#191919', 'shadow-2xl');
+            sidebar.classList.remove('bg-[#191919]', 'shadow-2xl');
         }
     }
 });

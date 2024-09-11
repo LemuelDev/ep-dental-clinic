@@ -41,8 +41,8 @@
                         <button class="btn btn-primary mt-2 text-md tracking-wide ">Send</button>
 
                         <div class="text-center grid pt-2">
-                            <a href="#" class="text-lg text-white tracking-wide hover:text-blue-500 py-1">Already have an account? Login</a>
-                            <a href="#" class="text-lg text-white tracking-wide hover:text-blue-500 py-1">Don't have an account? Sign Up</a>
+                            <a href="{{route('login')}}" class="text-lg text-white tracking-wide hover:text-blue-500 py-1">Already have an account? Login</a>
+                            <a href="{{route('signup')}}" class="text-lg text-white tracking-wide hover:text-blue-500 py-1">Don't have an account? Sign Up</a>
                         </div>
 
                     </form>

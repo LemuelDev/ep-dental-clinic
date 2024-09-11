@@ -43,8 +43,8 @@
                         <button class="btn btn-primary mt-4 text-md tracking-wide ">Login</button>
 
                         <div class="text-center grid">
-                            <a href="#" class="text-lg text-white tracking-wide hover:text-blue-500 py-3">Forgot Password?</a>
-                            <a href="#" class="text-lg text-white tracking-wide hover:text-blue-500 py-1">Don't have an account? Sign Up</a>
+                            <a href="{{route('forgotPassword')}}" class="text-lg text-white tracking-wide hover:text-blue-500 py-3">Forgot Password?</a>
+                            <a href="{{route('signup')}}" class="text-lg text-white tracking-wide hover:text-blue-500 py-1">Don't have an account? Sign Up</a>
                         </div>
 
                     </form>

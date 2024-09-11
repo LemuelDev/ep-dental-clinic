@@ -16,7 +16,7 @@
         <main class="flex-1 p-6 " id="main-content">
             <div class="container ">
                 <!-- Your main content goes here -->
-                <h1 class="text-3xl font-bold pb-4">Appointments</h1>
+                <h1 class="text-3xl font-bold pb-4">Approvals</h1>
                 @include('admin.tableApprovals') 
             </div>
                        
