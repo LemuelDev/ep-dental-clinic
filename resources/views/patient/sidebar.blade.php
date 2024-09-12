@@ -26,19 +26,10 @@
                     Appointments
                 </a>
             </li>
-            <li class="mb-2">
-                <a href="{{route('admin.approvals')}}" class="{{ request()->route()->getName() === 'admin.approvals' ? 'block p-2 bg-gray-700 text-white rounded' : 'block p-2 hover:bg-gray-700 hover:text-white rounded' }}">
-                    Approvals
-                </a>
-            </li>
-            <li class="mb-2">
-                <a href="{{route('admin.activeUsers')}}" class="{{ request()->route()->getName() === 'admin.activeUsers' ? 'block p-2 bg-gray-700 text-white rounded' : 'block p-2 hover:bg-gray-700 hover:text-white rounded' }}">
-                    Active Users
-                </a>
-            </li>
+            
             <li class="mb-2">
                 <a href="{{route('admin.patientHistory')}}" class="{{ request()->route()->getName() === 'admin.patientHistory' ? 'block p-2 bg-gray-700 text-white rounded' : 'block p-2 hover:bg-gray-700 hover:text-white rounded' }}">
-                    Patient History
+                    Treatment History
                 </a>
             </li>
             <li class="mb-2">

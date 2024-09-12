@@ -15,9 +15,9 @@
         }
     </style>
 </head>
-<body>
+<body class=""> 
 
-    <dialog id="my_modal_2" class="modal">
+    <dialog id="my_modal_6" class="modal">
         <div class="modal-box">
           <h3 class="text-lg font-bold">PASSWORD VALIDATIONS!</h3>
           <p class="py-4">Must be atleast one character, one uppercase, one lowercase and one number.</p>
@@ -44,7 +44,8 @@
             <div data-theme="dark" class="flex justify-center items-center w-1/2 max-lg:w-full">
                 <div class="text-center py-4">
                     <h4 class="text-3xl font-bold text-white mb-4 tracking-widest">SIGN UP</h4>
-                    <form action="POST" class="grid grid-cols-1  sm:grid-cols-2  px-4 gap-5 items-start text-left">
+                    <form action="{{route('users.store')}}" method="POST" class="grid grid-cols-1  sm:grid-cols-2  px-4 gap-5 items-start text-left">
+                        @csrf
                         <div class="grid">
                             <label for="firstname" class="text-lg text-white tracking-tight">FirstName:</label>
                             <input type="text" name="firstname" id="firstname" placeholder="Firstname" class="rounded-md px-4 py-3 bg-white hover:bg-gray-200 text-black placeholder:text-gray-400">
@@ -115,7 +116,7 @@
                         <div class="grid">
                             <label for="password" class="text-lg text-white tracking-tight">Password:</label>
                             <input type="password" placeholder="Password" name="password" id="password" class="rounded-md px-4 py-3 bg-white placeholder:text-gray-400">
-                            <span class="text-gray-300 italic pt-2 cursor-pointer"  onclick="my_modal_2.showModal()">check valid passwords here</span>
+                            <span class="text-gray-300 italic pt-2 cursor-pointer"  onclick="my_modal_6.showModal()">check valid passwords here</span>
                             <!-- Open the modal using ID.showModal() method -->
                         </div>
 
