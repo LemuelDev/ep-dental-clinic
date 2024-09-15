@@ -1,6 +1,8 @@
 <aside 
     id="sidebar" 
-    class="{{request()->route()->getName() === 'admin.profile' || request()->route()->getName() === 'admin.calendar' ? 'shadow-xl rounded-lg w-64 transition-all duration-300 ease-in-out transform lg:translate-x-0 -translate-x-full lg:relative fixed h-[100vh] lg:h-[calc(100vh+300px)]  bottom-0 z-[1000]'
+    class="{{request()->route()->getName() === 'admin.profile' || 
+    request()->route()->getName() === 'admin.calendar' ||
+     request()->route()->getName() === 'admin.trackReservation'  ? 'shadow-xl rounded-lg w-64 transition-all duration-300 ease-in-out transform lg:translate-x-0 -translate-x-full lg:relative fixed h-[100vh] lg:h-[calc(100vh+300px)]  bottom-0 z-[1000]'
     : 'shadow-xl rounded-lg w-[17rem] transition-all duration-300 ease-in-out transform lg:translate-x-0 -translate-x-full lg:relative fixed h-full bottom-0 z-[1000]'}}">
     <div class="flex flex-col h-full p-4">
         <div class="flex justify-end">
