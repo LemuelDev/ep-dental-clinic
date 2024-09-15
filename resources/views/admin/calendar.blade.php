@@ -10,14 +10,15 @@
     <div class="flex-1 flex flex-col w-full">
         <!-- Navbar -->
         @include('admin.navbar')
-
         
         <!-- Main content area -->
         <main class="flex-1 p-6 " id="main-content">
-            <div class="container ">
+            <div class=" py-4 ">
                 <!-- Your main content goes here -->
-                <h1 class="text-3xl font-bold pb-4">Approvals</h1>
-                @include('admin.tableApprovals') 
+                <h1 class="text-3xl font-bold pb-4 text-center">Appointment Calendar</h1>
+                <div class="">
+                    @include('admin.date') 
+                </div>
             </div>
                        
         </main>

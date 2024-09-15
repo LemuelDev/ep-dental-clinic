@@ -1,10 +1,14 @@
-@if (count($reservations) > 0)
+{{-- @if (count($reservations) > 0)
 <div class="overflow-x-auto pt-7">
   <table class="table table-zebra">
     <!-- head -->
     <thead>
       <tr>
         <th class="text-lg">Name</th>
+        <th class="text-lg">Contact Number</th>
+        <th class="text-lg">Address</th>
+        <th class="text-lg">Age</th>
+        <th class="text-lg">Sex</th>
         <th class="text-lg">Treatment</th>
         <th class="text-lg">Date</th>
         <th class="text-lg">Time</th>
@@ -15,7 +19,11 @@
       <!-- row 1 -->
       @forelse ($reservations as $reservation)
       <tr>
-        <td>You</td>
+        <td class="min-w-[170px]">{{$reservation->userProfile->firstname}} {{$reservation->userProfile->lastname}} </td>
+        <td>{{$reservation->userProfile->phone_number}}</td>
+        <td>{{$reservation->userProfile->address}}</td>
+        <td>{{$reservation->userProfile->age}}</td>
+        <td>{{$reservation->userProfile->sex}}</td>
         <td>{{$reservation->treatment_choice}}</td>
         <td  class="min-w-[190px]">{{$reservation->start->format('F j, Y')}}</td>
         <td class="min-w-[170px]">{{$reservation->start->format('g:i A')}} - {{$reservation->end->format('g:i A')}}</td>
@@ -46,4 +54,4 @@
         Book a Reservation
     </a>
 </div>
-@endif
+@endif --}}

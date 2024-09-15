@@ -1,5 +1,5 @@
 <nav class=" shadow p-4">
-    <div class="container mx-auto flex justify-between px-4 items-center lg:justify-end gap-4">
+    <div class=" flex justify-between px-4 items-center lg:justify-end gap-4">
 
       <button class="block lg:hidden" onclick="toggleSidebar()">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">

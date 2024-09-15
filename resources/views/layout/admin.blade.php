@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{env('APP_NAME')}} (ADMIN)</title>
+    <title>EP-CLINIC (ADMIN)</title>
     @vite('resources/css/app.css')
     @vite('resources/js/lightDark.js')
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,8 +15,40 @@
             font-family: "Poppins", sans-serif;
         }
     </style>
+     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+
+    @if (request()->route()->getName() === "admin.calendar")
+
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>    
+    @vite('resources/js/app.js')
+    <style>
+        /* Ensure FullCalendar header is responsive */
+        .fc-toolbar {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+        }
+        
+        @media (max-width: 658px) {
+            .fc-toolbar {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .fc-toolbar > * {
+                margin-bottom: 10px;
+            }
+            .fc-toolbar-title{
+            font-size: 20px;
+        }
+
+        }
+    </style>
+
+    @endif
+
 </head>
-<body>
+<body class="h-auto">
 
     @yield('navbar')
     @yield('content')

@@ -15,6 +15,32 @@
             font-family: "Poppins", sans-serif;
         }
     </style>
+
+    @if (request()->route()->getName() === "patient.calendar")
+
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>    
+    @vite('resources/js/app.js')
+    <style>
+        /* Ensure FullCalendar header is responsive */
+        .fc-toolbar {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+        }   
+
+        @media (max-width: 658px) {
+            .fc-toolbar {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .fc-toolbar > * {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+    @endif
+
 </head>
 <body>
 

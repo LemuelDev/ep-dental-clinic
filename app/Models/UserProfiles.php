@@ -22,12 +22,16 @@ class UserProfiles extends Model
         "age",
 
     ];
-
+    
     protected $table = 'userprofiles';
 
-    
     public function user()
     {
             return $this->hasOne(User::class, 'userprofile_id')->onDelete('cascade');
+    }
+
+    public function reservations()
+    {
+        return $this->hasMany(Reservation::class, 'userprofile_id')->onDelete('cascade');
     }
 }

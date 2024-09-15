@@ -7,13 +7,12 @@ use Illuminate\Http\Request;
 class AdminController extends Controller
 {
     //
-
+    public function getCalendar() {
+        return view("admin.calendar");
+    }
+    
     public function getAppointments() {
         return view("admin.appointments");
-    }
-
-    public function getApprovals() {
-        return view("admin.approvals");
     }
 
     public function getActiveUsers() {

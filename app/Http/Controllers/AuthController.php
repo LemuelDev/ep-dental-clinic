@@ -127,10 +127,10 @@ class AuthController extends Controller
                 request()->session()->regenerate();
 
                if ($user->userProfile->user_type === 'admin') {
-                    return redirect()->route('admin.appointments');
+                    return redirect()->route('admin.calendar');
         
-                } elseif ($user->userProfile->user_type === 'patient') {
-                    return redirect()->route('patient.appointments');
+                } else {
+                    return redirect()->route('patient.calendar');
                 }
             }
 

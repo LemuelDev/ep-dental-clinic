@@ -10,14 +10,14 @@
     <div class="flex-1 flex flex-col w-full">
         <!-- Navbar -->
         @include('admin.navbar')
-
+        
         
         <!-- Main content area -->
         <main class="flex-1 p-6 " id="main-content">
-            <div class="container ">
+            <div class="w-full">
                 <!-- Your main content goes here -->
                 <h1 class="text-3xl font-bold pb-4">Active Users</h1>
-                @include('admin.tableApprovals') 
+                @include('admin.tableUsers') 
             </div>
                        
         </main>

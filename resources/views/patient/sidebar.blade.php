@@ -1,6 +1,6 @@
 <aside 
     id="sidebar" 
-    class="{{request()->route()->getName() === 'admin.profile' ? 'shadow-xl rounded-lg w-64 transition-all duration-300 ease-in-out transform lg:translate-x-0 -translate-x-full lg:relative fixed h-[100vh] lg:h-[calc(100vh+150px)]  bottom-0 z-[1000]'
+    class="{{request()->route()->getName() === 'patient.profile' || request()->route()->getName() === 'patient.calendar'  ? 'shadow-xl rounded-lg w-64 transition-all duration-300 ease-in-out transform lg:translate-x-0 -translate-x-full lg:relative fixed h-[100vh] lg:h-[calc(100vh+300px)]  bottom-0 z-[1000]'
     : 'shadow-xl rounded-lg w-64 transition-all duration-300 ease-in-out transform lg:translate-x-0 -translate-x-full lg:relative fixed h-full bottom-0 z-[1000]'}}">
     <div class="flex flex-col h-full p-4">
         <div class="flex justify-end">
@@ -14,26 +14,31 @@
             </button>
         </div>
 
+        
         <!-- Sidebar content -->
         <ul class="mt-4 flex-grow">
-            {{-- <li class="mb-2">
-                <a href="{{route('admin.appointments')}}" class="{{ request()->route()->getName() === 'admin.appointments' ? 'block p-2 bg-gray-700 text-white rounded' : 'block p-2 hover:bg-gray-700 hover:text-white rounded' }}">
-                    Calendar
-                </a>
-            </li> --}}
-            <li class="mb-2">
-                <a href="{{route('admin.appointments')}}" class="{{ request()->route()->getName() === 'admin.appointments' ? 'block p-2 bg-gray-700 text-white rounded' : 'block p-2 hover:bg-gray-700 hover:text-white rounded' }}">
-                    Appointments
-                </a>
+            <li class="mb-2 text-center">
+                <a href="#" class="text-center font-bold text-lg flex justify-center items-center gap-2">PATIENT <span class="pt-2"><box-icon name='user' color="currentColor" ></box-icon></span> </a>
             </li>
             
             <li class="mb-2">
-                <a href="{{route('admin.patientHistory')}}" class="{{ request()->route()->getName() === 'admin.patientHistory' ? 'block p-2 bg-gray-700 text-white rounded' : 'block p-2 hover:bg-gray-700 hover:text-white rounded' }}">
+                <a href="{{route('patient.calendar')}}" class="{{ request()->route()->getName() === 'patient.calendar' ? 'block p-2 bg-gray-700 text-white rounded' : 'block p-2 hover:bg-gray-700 hover:text-white rounded' }}">
+                    Appointment Calendar
+                </a>
+            </li>
+            <li class="mb-2">
+                <a href="{{route('patient.reservations')}}" class="{{ request()->route()->getName() === 'patient.reservations' ? 'block p-2 bg-gray-700 text-white rounded' : 'block p-2 hover:bg-gray-700 hover:text-white rounded' }}">
+                    Reservations
+                </a>
+            </li>
+
+            <li class="mb-2">
+                <a href="{{route('patient.treatmentHistory')}}" class="{{ request()->route()->getName() === 'patient.treatmentHistory' ? 'block p-2 bg-gray-700 text-white rounded' : 'block p-2 hover:bg-gray-700 hover:text-white rounded' }}">
                     Treatment History
                 </a>
             </li>
             <li class="mb-2">
-                <a href="{{route('admin.profile')}}" class="{{ request()->route()->getName() === 'admin.profile' ? 'block p-2 bg-gray-700 text-white rounded' : 'block p-2 hover:bg-gray-700 hover:text-white rounded' }}">
+                <a href="{{route('patient.profile')}}" class="{{ request()->route()->getName() === 'patient.profile' ? 'block p-2 bg-gray-700 text-white rounded' : 'block p-2 hover:bg-gray-700 hover:text-white rounded' }}">
                     Profile
                 </a>
             </li>

@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PatientController;
+use App\Http\Controllers\ReservationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,9 +36,10 @@ Route::post('/logout', [AuthController::class , 'logout'])->name('logout');
 
 // admin
 
-Route::get('/admin/appointments', [AdminController::class, 'getAppointments'])->name('admin.appointments');
 
-Route::get('/admin/approvals', [AdminController::class, 'getApprovals'])->name('admin.approvals');
+Route::get('/admin/appointments/Calendar', [AdminController::class, 'getCalendar'])->name('admin.calendar');
+
+Route::get('/admin/appointments', [AdminController::class, 'getAppointments'])->name('admin.appointments');
 
 Route::get('/admin/activeUsers', [AdminController::class, 'getActiveUsers'])->name('admin.activeUsers');
 
@@ -46,7 +48,16 @@ Route::get('/admin/patientHistory', [AdminController::class, 'getPatientHistory'
 Route::get('/admin/profile', [AdminController::class, 'getProfile'])->name('admin.profile');
 
 
-Route::get('/patient/appointments', [PatientController::class, 'getAppointments'])->name('patient.appointments');
+
+// patient
+
+Route::get('/patient/appointments/Calendar', [PatientController::class, 'getCalendar'])->name('patient.calendar');
+
+Route::get('/patient/reservations', [PatientController::class, 'getReservations'])->name('patient.reservations');
+
+Route::get('/patient/reservation/create', [PatientController::class, 'createReservations'])->name('patient.create');
+
+Route::post('/patient/reservation/create', [ReservationController::class, 'store']);
 
 Route::get('/patient/patientHistory', [PatientController::class, 'getTreatmentHistory'])->name('patient.treatmentHistory');
 
