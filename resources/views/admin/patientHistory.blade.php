@@ -15,18 +15,26 @@
         <main class="flex-1 p-6 " id="main-content">
             <div class=" ">
                 <!-- Your main content goes here -->
-               <div class="flex justify-between items-center">
-                <h1 class="lg:text-3xl text-xl font-bold pb-4">Patient Records</h1>
-                <select name="filter-appointment" id="" class="py-2 px-5 bg-transparent shadow rounded-lg">
-                    <option value="">Today</option>
-                    <option value="">Next 3 days</option>
-                    <option value="">This whole week</option>
-                    <option value="">Next Week</option>
-                    <option value="">Next Two Weeks</option>
-                </select>
-               </div>
+                <div class="flex max-sm:flex-col justify-center max-sm:gap-5 sm:justify-between items-center">
+                    <h1 class="lg:text-3xl text-2xl font-bold ">Patient History</h1>
+                    <div class="flex sm:flex-col gap-4 items-center justify-center">
+                        <select name="filter-appointment" id="" class="py-1 px-5 w-full bg-transparent shadow rounded-lg">
+                            <option value="">All</option>
+                            <option value="">Today</option>
+                            <option value="">Next 3 days</option>
+                            <option value="">This whole week</option>
+                            <option value="">Next Week</option>
+                            <option value="">Next Two Weeks</option>
+                        </select>
+                        <select name="filter-status" id="" class="py-1 px-5 w-full bg-transparent shadow rounded-lg">
+                            <option value="">Pending</option>
+                            <option value="">Approved</option>
+                           
+                        </select>
+                   </div>
+                </div>
             </div>
-                @include('admin.tableUsers') 
+                {{-- @include('admin.tableUsers')  --}}
             </div>
                        
         </main>

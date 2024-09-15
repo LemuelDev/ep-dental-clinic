@@ -24,13 +24,20 @@
                     <a href="{{route('patient.create')}}" class="px-3 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
                         Book a Reservation
                     </a>
-                    <select name="filter-appointment" id="" class="py-3 px-5 bg-transparent shadow rounded-lg">
-                        <option value="">Today</option>
-                        <option value="">Next 3 days</option>
-                        <option value="">This whole week</option>
-                        <option value="">Next Week</option>
-                        <option value="">Next Two Weeks</option>
-                    </select>
+                   <div class="flex sm:flex-col gap-4 items-center justify-center">
+                        <select name="filter-appointment" id="" class="py-1 px-5 w-full bg-transparent shadow rounded-lg">
+                            <option value="">All</option>
+                            <option value="">Today</option>
+                            <option value="">Next 3 days</option>
+                            <option value="">This whole week</option>
+                            <option value="">Next Week</option>
+                            <option value="">Next Two Weeks</option>
+                        </select>
+                        <select name="filter-status" id="" class="py-1 px-5 w-full bg-transparent shadow rounded-lg">
+                            <option value="">Pending</option>
+                            <option value="">Approved</option>
+                        </select>
+                   </div>
                    </div>
                    @endif
                 </div>

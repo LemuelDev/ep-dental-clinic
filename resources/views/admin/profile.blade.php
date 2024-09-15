@@ -5,13 +5,11 @@
     <!-- Sidebar -->
     @include('admin.sidebar')
 
-
     <!-- Main content -->
     <div class="flex-1 flex flex-col w-full">
         <!-- Navbar -->
         @include('admin.navbar')
 
-        
         <!-- Main content area -->
         <main class="flex-1 p-6 " id="main-content">
             <div class="w-full">

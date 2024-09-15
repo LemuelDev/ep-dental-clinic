@@ -29,7 +29,7 @@ class Reservation extends Model
 
     public function emergencyContact()
     {
-            return $this->hasOne(EmergencyContact::class, 'reservation_id')->onDelete('cascade');
+        return $this->hasOne(EmergencyContact::class, 'reservation_id');
     }
     public function userProfile()
     {

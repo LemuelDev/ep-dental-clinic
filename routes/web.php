@@ -47,6 +47,11 @@ Route::get('/admin/patientHistory', [AdminController::class, 'getPatientHistory'
 
 Route::get('/admin/profile', [AdminController::class, 'getProfile'])->name('admin.profile');
 
+Route::get('/admin/activeUsers/enable/{id}', [AdminController::class, 'enableUser'])->name("admin.enable");
+
+Route::get('/admin/activeUsers/disable/{id}', [AdminController::class, 'disableUser'])->name("admin.disable");
+
+Route::get('/admin/appointments/view/{id}' , [AdminController::class, 'trackReservation'])->name("admin.trackReservation");
 
 
 // patient

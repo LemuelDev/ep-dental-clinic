@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{env('APP_NAME')}} (PATIENT)</title>
+    <title>EP-CLINIC (PATIENT)</title>
     @vite('resources/css/app.css')
     @vite('resources/js/lightDark.js')
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,6 +15,7 @@
             font-family: "Poppins", sans-serif;
         }
     </style>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 
     @if (request()->route()->getName() === "patient.calendar")
 

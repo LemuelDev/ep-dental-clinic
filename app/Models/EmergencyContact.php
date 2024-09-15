@@ -19,8 +19,8 @@ class EmergencyContact extends Model
         "reservation_id"
     ];
 
-    public function reservations()
+    public function reservation()
     {
-        return $this->hasMany(Reservation::class, 'userprofile_id');
+            return $this->belongsTo(Reservation::class, 'id');
     }
 }
