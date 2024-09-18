@@ -20,7 +20,10 @@ class UserProfiles extends Model
         "sex",
         "birthday",
         "age",
-        "user_status"
+        "user_status",
+        "emergency_name",
+        "emergency_contact",
+        "emergency_relationship"
     ];
     
     protected $table = 'userprofiles';

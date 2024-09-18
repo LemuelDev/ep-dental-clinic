@@ -14,7 +14,7 @@ module.exports = {
     require('daisyui'),
   ],
   daisyui: {
-    themes: [ "cupcake","dark"], // You can customize the themes here
+    themes: [ "light","dark"], // You can customize the themes here
   },
 }
 

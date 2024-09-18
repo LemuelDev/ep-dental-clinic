@@ -34,10 +34,9 @@ class ReservationController extends Controller
         ->where('end', '>=', $startDateTime)
         ->exists();
 
-    if ($existingReservation) {
-        return back()->withErrors(['reservation_time' => 'The selected time slot is already occupied. Please choose another time.']);
-    }
-
+        if ($existingReservation) {
+            return redirect()->back()->with('failed', 'The selected time slot is already occupied. Please choose another time.');
+        }
     // Create a new reservation
     $reservation = Reservation::create([
         'userprofile_id' => auth()->id(),  // Assuming the user is logged in

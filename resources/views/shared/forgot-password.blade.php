@@ -20,7 +20,7 @@
     <section class="flex h-screen max-sm:grid ">
         
             {{-- Clinic logo section --}}
-            <div data-theme="cupcake" class="flex justify-center items-center w-1/2 max-sm:w-full border-r-2">
+            <div data-theme="light" class="flex justify-center items-center w-1/2 max-sm:w-full border-r-2">
                 <div class="flex justify-center items-center gap-6 max-lg:flex-col max-sm:flex-row h-auto py-4">
                     <h4 class="text-4xl max-lg:text-3xl max-sm:text-2xl font-bold text-black text-center">ESPINELI-PARADEZA <br> DENTAL CLINIC</h4>
                     <img src="{{ asset('images/tooth-whitening.png') }}" alt="" class="rounded-md w-40 h-160 max-lg:h-130 max-sm:100 max-sm:w-20 align-middle">
@@ -32,13 +32,15 @@
                 <div class="text-center py-6">
                     <h4 class="text-3xl font-bold text-white mb-4 tracking-wide">FORGOT PASSWORD</h4>
                     <p class="text-md text-white py-2">An email will be sent to your account.</p>
-                    <form action="POST" class="grid gap-4 items-center text-left pt-3">
+                    <form method="POST" action="{{route('password.email')}}" class="grid gap-4 items-center text-left pt-3">
+                        @csrf
+                        @method('POST')
                         <div class="grid">
                             <label for="email" class="text-md text-white tracking-wider">Email:</label>
-                            <input type="text" name="email" id="email" placeholder="Email" class="rounded-md px-10 py-3 bg-white hover:bg-gray-200 text-black placeholder:text-gray-400">
+                            <input type="text" name="email" id="email" placeholder="Email" class="rounded-md px-10 py-3 bg-white hover:bg-gray-200 text-black placeholder:text-black">
                         </div>
                        
-                        <button class="btn btn-primary mt-2 text-md tracking-wide ">Send</button>
+                        <button class="btn btn-primary mt-2 text-md tracking-wide  text-md">SEND</button>
 
                         <div class="text-center grid pt-2">
                             <a href="{{route('login')}}" class="text-lg text-white tracking-wide hover:text-blue-500 py-1">Already have an account? Login</a>
@@ -49,6 +51,79 @@
                 </div>
             </div>
 
+            @if ($errors->has('email'))
+            <dialog id="my_modal_29" class="modal">
+                <div class="modal-box">
+                <h3 class="text-xl font-bold">Failed!</h3>
+                <p class="py-4 pt-8 text-center text-red-600">{{$errors->first('email')}}</p>
+                <div class="modal-action">
+                    <form method="dialog">
+                    <!-- if there is a button in form, it will close the modal -->
+                    <button class="btn">Close</button>
+                    </form>
+                </div>
+                </div>
+            </dialog>
+  
+            <!-- JavaScript to automatically open modal -->
+            <script>
+                // Automatically open modal on page load
+                window.addEventListener('DOMContentLoaded', (event) => {
+                document.getElementById('my_modal_29').showModal();
+                });
+            </script>
+            @endif
+
+            @if (session()->has('success'))
+            <dialog id="my_modal_30" class="modal">
+                <div class="modal-box">
+                <h3 class="text-xl font-bold">Email Sent!</h3>
+                <p class="py-4 pt-8 text-center text-green-600">{{session('success')}}</p>
+                <div class="modal-action">
+                    <form method="dialog">
+                    <!-- if there is a button in form, it will close the modal -->
+                    <button class="btn">Close</button>
+                    </form>
+                </div>
+                </div>
+            </dialog>
+  
+            <!-- JavaScript to automatically open modal -->
+            <script>
+                // Automatically open modal on page load
+                window.addEventListener('DOMContentLoaded', (event) => {
+                document.getElementById('my_modal_30').showModal();
+                });
+            </script>
+            @endif
+
+            
+            @if (session()->has('general'))
+                <dialog id="my_modal_31" class="modal">
+                    <div class="modal-box">
+                    <h3 class="text-xl font-bold">Failed!</h3>
+                    <p class="py-4 pt-8 text-center text-red-600">{{session('general')}}</p>
+                    <div class="modal-action">
+                        <form method="dialog">
+                        <!-- if there is a button in form, it will close the modal -->
+                        <button class="btn">Close</button>
+                        </form>
+                    </div>
+                    </div>
+                </dialog>
+
+                <!-- JavaScript to automatically open modal -->
+                <script>
+                    // Automatically open modal on page load
+                    window.addEventListener('DOMContentLoaded', (event) => {
+                    document.getElementById('my_modal_31').showModal();
+                    });
+                </script>
+             @endif
+
+            
+
+        
         
 
     </section>

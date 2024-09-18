@@ -26,11 +26,6 @@ class Reservation extends Model
     ];
 
     public $timestamps = false; // Disable timestamps
-
-    public function emergencyContact()
-    {
-        return $this->hasOne(EmergencyContact::class, 'reservation_id');
-    }
     public function userProfile()
     {
         return $this->belongsTo(UserProfiles::class, 'userprofile_id');

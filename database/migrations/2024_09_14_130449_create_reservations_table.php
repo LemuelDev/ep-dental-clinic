@@ -17,6 +17,7 @@ return new class extends Migration
             $table->timestamp('end')->nullable();
             $table->string('reservation_status')->default('pending');
             $table->string('treatment_choice');
+            $table->string("description_of_cancel");
             $table->foreignId('userprofile_id')->constrained('userprofiles')->cascadeOnDelete();
             $table->timestamps();
         });

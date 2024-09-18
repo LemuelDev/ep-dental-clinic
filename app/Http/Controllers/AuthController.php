@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\WelcomeEmail;
 use App\Models\User;
 use App\Models\UserProfiles;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class AuthController extends Controller
 {
@@ -25,11 +27,11 @@ class AuthController extends Controller
 
     public function store() {
 
-        $requiredFields = ['lastname', 'firstname', 'email', 'username', 'password', 'address', 'sex', "phone_number", "birthday", ];
+        $requiredFields = ['lastname', 'firstname', 'email', 'username', 'password', 'address', 'sex', "phone_number", "birthday", "emergency_name", "emergency_contact", "emergency_relationship"];
     
         foreach ($requiredFields as $field) {
             if (empty(request($field))) {
-                return back()->withErrors(['general' => 'All fields must be filled up.'])->withInput();
+                return redirect()->back()->with(['general' => 'All fields must be filled up.'])->withInput();
             }
         }
         
@@ -38,7 +40,7 @@ class AuthController extends Controller
             "firstname" => "required|string|max:40",
             "middlename" => "nullable|string|max:40",
             "extensionname" => "nullable|string|max:40",
-            "email" => "required|email",
+             "email" => "required|email|unique:userprofiles,email",
             "username" => "required|max:40",
             "password" => [
                 'required',
@@ -47,15 +49,21 @@ class AuthController extends Controller
                 'regex:/[a-z]/', // must contain at least one lowercase letter
                 'regex:/[A-Z]/', // must contain at least one uppercase letter
                 'regex:/[0-9]/', // must contain at least one number
-                'regex:/[@$!%*?&#]/' // must contain a special character
+                'regex:/[@$!%*?&#]/',
+                'confirmed'// must contain a special character
             ],
             "address" => "required|string",
             "sex" => "required|string",
             "phone_number" => "required|string",
             "birthday" => "required|string",
+            "emergency_name" => "required|string",
+            "emergency_contact" => "required|string",
+             "emergency_relationship" => "required|string",
              // Optional field with validation for image file
         ], [
-            'password.regex' => 'Password must contain at least one lowercase letter, one uppercase letter, one number, and one special character.'
+            'password.regex' => 'Password must contain at least one lowercase letter, one uppercase letter, one number, and one special character.',
+            'password.confirmed' => 'Password confirmation does not match.',
+            'email.unique' => 'The email address is already registered. Please use a different email address.' // Custom error message for unique email
         ]);
 
         // Check if email already exists in users table
@@ -78,7 +86,9 @@ class AuthController extends Controller
             "phone_number" => $validated["phone_number"],
             "birthday" => $validated["birthday"],
             "age" => $age,
-            
+            "emergency_relationship" => $validated["emergency_relationship"],
+            "emergency_name" => $validated["emergency_name"],
+            "emergency_contact" => $validated["emergency_contact"],
         ]);
     
         // Create the user and associate it with the user profile
@@ -88,17 +98,14 @@ class AuthController extends Controller
             "userprofile_id" => $userProfile->id 
         ]);
     
-        session()->put('email', $validated['email']);
     
         // // Send email notification
-        // $message = "Thanks for Signing up! Your Account is still for approval. We will contact you once your account is approved and ready to use.";
-        // Mail::to($validated["email"])->send(new WelcomeEmail(
-        //     $message, 
-        //     $name, // Use concatenated name here
-        //     $validated["username"], 
-        //     $validated["email"], 
-        //     $validated["municipality"]
-        // ));
+        $message = "Thank you for registering with us! Your account is currently under review, and we are working to approve it as soon as possible.\n 
+                    Once your account is approved, we will notify you with further details, and you will be ready to start using our services.\n
+                    We appreciate your patience and look forward to having you onboard!";
+        Mail::to($validated["email"])->send(new WelcomeEmail(
+            $message, 
+        ));
     
         return redirect()->route("login")->with("signup-success", "Account created successfully.");
     }
@@ -127,10 +134,10 @@ class AuthController extends Controller
                 request()->session()->regenerate();
 
                if ($user->userProfile->user_type === 'admin') {
-                    return redirect()->route('admin.calendar');
+                    return redirect()->route('admin.appointments');
         
                 } else {
-                    return redirect()->route('patient.calendar');
+                    return redirect()->route('patient.reservations');
                 }
             }
 

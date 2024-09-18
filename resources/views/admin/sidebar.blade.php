@@ -21,12 +21,12 @@
             <li class="mb-2 text-center">
                 <a href="#" class="text-center font-bold text-lg flex justify-center items-center gap-2">ADMIN <span class="pt-2"><box-icon name='user' color="currentColor" ></box-icon></span> </a>
             </li>
-
+{{-- 
             <li class="mb-2">
                 <a href="{{route('admin.calendar')}}" class="{{ request()->route()->getName() === 'admin.calendar' ? 'block p-2 bg-gray-700 text-white rounded' : 'block p-2 hover:bg-gray-700 hover:text-white rounded' }}">
                     Appointment Calendar
                 </a>
-            </li>
+            </li> --}}
             <li class="mb-2">
                 <a href="{{route('admin.appointments')}}" class="{{ request()->route()->getName() === 'admin.appointments' ? 'block p-2 bg-gray-700 text-white rounded' : 'block p-2 hover:bg-gray-700 hover:text-white rounded' }}">
                     Reservations

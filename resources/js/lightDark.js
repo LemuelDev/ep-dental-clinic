@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Listen for the toggle change event
     themeToggle.addEventListener('change', function () {
-        const theme = themeToggle.checked ? 'dark' : 'cupcake';
+        const theme = themeToggle.checked ? 'dark' : 'light';
         document.documentElement.setAttribute('data-theme', theme);
         localStorage.setItem('theme', theme);
         // Apply the theme to the sidebar
@@ -23,9 +23,9 @@ document.addEventListener('DOMContentLoaded', function () {
     function applyTheme(theme) {
         if (theme === 'dark') {
             sidebar.classList.add('bg-[#191919]', 'shadow-2xl');
-            sidebar.classList.remove('bg-[#FFF7F1]');
+            sidebar.classList.remove('bg-[#F5F7F8]');
         } else {
-            sidebar.classList.add('bg-[#FFF7F1]');
+            sidebar.classList.add('bg-[#F5F7F8]');
             sidebar.classList.remove('bg-[#191919]', 'shadow-2xl');
         }
     }

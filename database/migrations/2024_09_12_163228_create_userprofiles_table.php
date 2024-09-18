@@ -23,9 +23,12 @@ return new class extends Migration
             $table->string('sex');
             $table->string('birthday');
             $table->string('age');
+            $table->string("emergency_name");
+            $table->string("emergency_contact");
+            $table->string("emergency_relationship");
             $table->string('user_status')->default('enable');
             $table->string('user_type')->default('patient');
-            $table->string('isPending')->default('approved');
+            $table->string('isPending')->default('pending');
             $table->timestamps();
         });
     }
