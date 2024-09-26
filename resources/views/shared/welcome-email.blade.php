@@ -13,7 +13,8 @@
     <br>
     <br>
     <br>
-    <h5>-ESPINELI-PARADEZA DENTAL CLINIC</h5>
+    <h3>Best Regards,</h3>
+    <h3>ESPINELI-PARADEZA DENTAL CLINIC</h3>
 
 
 

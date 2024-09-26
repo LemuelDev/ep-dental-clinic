@@ -30,7 +30,7 @@ class UserProfiles extends Model
 
     public function user()
     {
-            return $this->hasOne(User::class, 'userprofile_id')->onDelete('cascade');
+            return $this->hasOne(User::class, 'userprofile_id');
     }
 
     public function reservations()

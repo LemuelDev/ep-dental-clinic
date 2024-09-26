@@ -25,11 +25,8 @@
       <td>{{$user->user_status}}</td>
       <td>
         <div class="flex items-center justify-center gap-2">
-           @if ($user->user_status == "enable")
-           <a href="{{route('admin.disable', $user->id)}}" class="text-white rounded-md px-4 py-3 bg-green-500 hover:bg-green-600 text-center whitespace-nowrap">Disable</a>
-           @else
-           <a href="{{route('admin.enable', $user->id)}}" class="text-white rounded-md px-4 py-3 bg-green-500 hover:bg-green-600 text-center whitespace-nowrap">Enable</a>
-           @endif
+          <a href="{{route('admin.trackUser', $user->id)}}" class="text-white rounded-md px-4 py-3 bg-green-500 hover:bg-green-600 text-center whitespace-nowrap">View</a>
+          
             <button class="delete-btn text-white py-3 px-6 bg-red-500 hover:bg-red-600 rounded-md"
                   data-file-id=""
                   data-toggle-modal="#deleteConfirmationModal">
@@ -46,5 +43,8 @@
   </table>
 </div>
 @else
-    
+<div class="flex flex-col mt-10 items-center justify-center">
+  <div class="text-3xl font-bold  mb-4">No ActiveUsers</div>
+  <p class="text-xl mb-6">It looks like there are no active users at the moment.</p>
+</div>
 @endif

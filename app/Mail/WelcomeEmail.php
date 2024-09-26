@@ -28,7 +28,7 @@ class WelcomeEmail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Good day!You created a new account to ESPINELI-PARADEZA DENTAL CLINIC!',
+            subject: 'Good day! You created a new account to ESPINELI-PARADEZA DENTAL CLINIC!',
         );
     }
 

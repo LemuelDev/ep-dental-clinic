@@ -11,7 +11,8 @@
     <p>{{$mailmessage}}</p>
     <br>
     <br>
-    <br>
-    <h4>-ESPINELI-PARADEZA DENTAL CLINIC</h4>
+    <br>   
+     <h3>Best Regards,</h3>
+    <h3>ESPINELI-PARADEZA DENTAL CLINIC</h3>
 </body>
 </html>

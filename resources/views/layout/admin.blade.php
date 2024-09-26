@@ -17,34 +17,10 @@
     </style>
      <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 
-    @if (request()->route()->getName() === "admin.calendar")
-
-    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>    
-    @vite('resources/js/app.js')
-    <style>
-        /* Ensure FullCalendar header is responsive */
-        .fc-toolbar {
-            display: flex;
-            flex-wrap: nowrap;
-            justify-content: space-between;
-        }
-        
-        @media (max-width: 658px) {
-            .fc-toolbar {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .fc-toolbar > * {
-                margin-bottom: 10px;
-            }
-            .fc-toolbar-title{
-            font-size: 20px;
-        }
-
-        }
-    </style>
-
+    @if (request()->route()->getName() === "admin.appointments")
+    
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/dark.css">
     @endif
 
 </head>

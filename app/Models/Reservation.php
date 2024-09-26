@@ -12,20 +12,27 @@ class Reservation extends Model
        // Allow mass assignment for these fields
        protected $fillable = [
         'userprofile_id',
-        'start',
-        'end',
+        'time_slot_id',
+        'medicalhistory_table_id',
         'treatment_choice',
+        'description_of_cancel',
         'reservation_status'
     ];
 
     protected $table = "reservations";
 
-    protected $casts = [
-        'start' => 'datetime',
-        'end' => 'datetime',
-    ];
-
     public $timestamps = false; // Disable timestamps
+
+    public function medicalHistory()
+    {
+        return $this->hasOne(MedicalHistory::class, 'id');
+    }
+
+    public function timeSlots()
+    {
+        return $this->hasOne(TimeSlot::class, 'id');
+    }
+
     public function userProfile()
     {
         return $this->belongsTo(UserProfiles::class, 'userprofile_id');

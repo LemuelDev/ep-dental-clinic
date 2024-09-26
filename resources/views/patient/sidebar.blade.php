@@ -1,6 +1,6 @@
 <aside 
     id="sidebar" 
-    class="{{request()->route()->getName() === 'patient.profile' || request()->route()->getName() === 'patient.calendar'  ? 'shadow-xl rounded-lg w-64 transition-all duration-300 ease-in-out transform lg:translate-x-0 -translate-x-full lg:relative fixed h-[100vh] lg:h-[calc(100vh+300px)]  bottom-0 z-[1000]'
+    class="{{request()->route()->getName() === 'patient.profile' || request()->route()->getName() === 'patient.calendar'  ? 'shadow-xl rounded-lg w-64 transition-all duration-300 ease-in-out transform lg:translate-x-0 -translate-x-full lg:relative fixed h-[100vh] lg:h-[calc(100vh+350px)]  bottom-0 z-[1000]'
     : 'shadow-xl rounded-lg w-64 transition-all duration-300 ease-in-out transform lg:translate-x-0 -translate-x-full lg:relative fixed h-full bottom-0 z-[1000]'}}">
     <div class="flex flex-col h-full p-4">
         <div class="flex justify-end">
@@ -13,7 +13,7 @@
                 </svg>
             </button>
         </div>
-
+        
         
         <!-- Sidebar content -->
         <ul class="mt-4 flex-grow">
@@ -21,11 +21,11 @@
                 <a href="#" class="text-center font-bold text-lg flex justify-center items-center gap-2">PATIENT <span class="pt-2"><box-icon name='user' color="currentColor" ></box-icon></span> </a>
             </li>
             
-            <li class="mb-2">
+            {{-- <li class="mb-2">
                 <a href="{{route('patient.calendar')}}" class="{{ request()->route()->getName() === 'patient.calendar' ? 'block p-2 bg-gray-700 text-white rounded' : 'block p-2 hover:bg-gray-700 hover:text-white rounded' }}">
                     Appointment Calendar
                 </a>
-            </li>
+            </li> --}}
             <li class="mb-2">
                 <a href="{{route('patient.reservations')}}" class="{{ request()->route()->getName() === 'patient.reservations' ? 'block p-2 bg-gray-700 text-white rounded' : 'block p-2 hover:bg-gray-700 hover:text-white rounded' }}">
                     Reservations

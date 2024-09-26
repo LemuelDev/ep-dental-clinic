@@ -25,8 +25,8 @@
         <td>{{$reservation->userProfile->age}}</td>
         <td>{{$reservation->userProfile->sex}}</td>
         <td>{{$reservation->treatment_choice}}</td>
-        <td  class="max-lg:min-w-[190px]">{{$reservation->start->format('F j, Y')}}</td>
-        <td class="max-lg:min-w-[190px]">{{$reservation->start->format('g:i A')}} - {{$reservation->end->format('g:i A')}}</td>
+        <td  class="min-w-[190px]">{{ \Carbon\Carbon::parse($reservation->timeSlots->date)->format('F j, Y') }}</td>
+        <td class="min-w-[130px]">{{$reservation->timeSlots->time_range}}</td>
         <td>
           <div class="flex items-center justify-center gap-2">
               <a href="{{route('admin.trackReservation', $reservation->id)}}" class="text-white rounded-md px-4 py-3 bg-green-500 hover:bg-green-600 text-center whitespace-nowrap">View</a>
@@ -47,11 +47,11 @@
 </div>
 
 @else
-<div class="flex flex-col items-center justify-center">
+<div class="flex flex-col items-center justify-center pt-16">
     <div class="text-3xl font-bold  mb-4">No Patient History</div>
     <p class="text-xl mb-6">It looks like there are no patient history at the moment.</p>
-    <a href="{{route('patient.create')}}" class="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
+    {{-- <a href="{{route('patient.create')}}" class="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
         Book a Reservation
-    </a>
+    </a> --}}
 </div>
 @endif

@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('medicalhistory_tables', function (Blueprint $table) {
+        Schema::create('time_slots', function (Blueprint $table) {
             $table->id();
-            $table->string("medical_history");
-            $table->string("description");
-            $table->foreignId(column: 'reservation_id')->constrained('reservations')->cascadeOnDelete();
+            $table->date('date');
+            $table->string('time_range');  // e.g., "8-9"
+            $table->boolean('is_occupied'); 
             $table->timestamps();
         });
     }
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('medicalhistory_tables');
+        Schema::dropIfExists('time_slots');
     }
 };

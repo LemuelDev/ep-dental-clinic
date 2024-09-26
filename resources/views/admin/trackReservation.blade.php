@@ -50,11 +50,11 @@
                             </div>
                             <div class="flex gap-4 justify-start items-center">
                                 <label for="">Date:</label>
-                                <input type="text" readonly value="{{$id->start->format('F j, Y')}}" class="bg-transparent  rounded-lg shadow lg:px-10 px-4 py-3 text-left text-md w-full">
+                                <input type="text" readonly value="{{ \Carbon\Carbon::parse($id->timeSlots->date)->format('F j, Y') }}" class="bg-transparent  rounded-lg shadow lg:px-10 px-4 py-3 text-left text-md w-full">
                             </div>
                             <div class="flex gap-4 justify-start items-center">
                                 <label for="">Time:</label>
-                                <input type="text" readonly value="{{$id->start->format('g:i A')}} - {{$id->end->format('g:i A')}}" class="bg-transparent  rounded-lg shadow px-4 w-full py-3 text-left text-md">
+                                <input type="text" readonly value="{{$id->timeSlots->time_range}}" class="bg-transparent  rounded-lg shadow px-4 w-full py-3 text-left text-md">
                             </div>
                           
                         </div>  
@@ -65,24 +65,31 @@
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 ">
                             <div class="flex gap-4 justify-start items-center">
                                 <label for="">Name:</label>
-                                <input type="text" readonly value="{{$id->emergencyContact->name}}" class=" bg-transparent rounded-lg shadow lg:px-10 px-4 py-3 text-left text-md w-full">
+                                <input type="text" readonly value="{{$id->userProfile->emergency_name}}" class=" bg-transparent rounded-lg shadow lg:px-10 px-4 py-3 text-left text-md w-full">
                             </div>
                             <div class="flex gap-4 justify-start items-center">
                                 <label for="">Phone Number:</label>
-                                <input type="text" readonly value="{{$id->emergencyContact->phone_number}}" class="bg-transparent  rounded-lg shadow lg:px-10 px-4 py-3 text-left text-md w-full">
+                                <input type="text" readonly value="{{$id->userProfile->emergency_contact}}" class="bg-transparent  rounded-lg shadow lg:px-10 px-4 py-3 text-left text-md w-full">
                             </div>
                             <div class="flex gap-4 justify-start items-center">
                                 <label for="">Relationship:</label>
-                                <input type="text" readonly value="{{$id->emergencyContact->relationship}}" class="bg-transparent  rounded-lg shadow lg:px-10 px-4 py-3 text-left text-md w-full">
+                                <input type="text" readonly value="{{$id->userProfile->emergency_relationship}}" class="bg-transparent  rounded-lg shadow lg:px-10 px-4 py-3 text-left text-md w-full">
                             </div>
                            
                         </div>  
                     </div>
                     
+                    @if ($id->reservation_status === "approved")
                     <div class="mx-auto px-4 w-full max-[520px]:max-w-[600px]  max-sm:flex-col flex gap-4 items-center justify-center py-8">
-                        <a href="{{route('admin.approveReservation', $id->id)}}" class="px-10 py-3 rounded-md text-center border-none text-lg text-white shadow bg-[#624E88] hover:bg-[#58457b]">Approve Reservation</a>
-                        <a href="{{route('admin.rejectReservation', $id->id)}}" class="px-10 py-3 rounded-md text-center border-none text-lg text-white shadow bg-red-700 hover:bg-red-800">Reject Reservation</a>
+                        <a href="{{route('admin.approveReservation', $id->id)}}" class="px-10 py-3 rounded-md text-center border-none text-lg text-white shadow bg-[#624E88] hover:bg-[#58457b]">Complete Reservation</a>
+                        <a href="{{route('admin.rejectReservation', $id->id)}}" class="px-10 py-3 rounded-md text-center border-none text-lg text-white shadow bg-red-700 hover:bg-red-800">No-show Reservation</a>
                     </div>
+                    @else
+                    <div class="mx-auto px-4 w-full max-[520px]:max-w-[600px]  max-sm:flex-col flex gap-4 items-center justify-end py-8">
+                        <a href="{{route('admin.patientHistory')}}" class="px-10 py-3 rounded-md text-center border-none text-lg text-white shadow bg-[#624E88] hover:bg-[#58457b]">Back to Patient History</a>
+                       
+                    </div>
+                    @endif
 
                 </div>
 

@@ -51,15 +51,28 @@ Route::post('password/reset/', [PasswordResetController::class, 'reset'])
 // admin
 
 
-Route::get('/admin/appointments/Calendar', [AdminController::class, 'getCalendar'])->name('admin.calendar');
 
 Route::get('/admin/appointments', [AdminController::class, 'getAppointments'])->name('admin.appointments');
 
+Route::get('/admin/approvals', [AdminController::class, 'getApprovals'])->name('admin.approvals');
+
+Route::get('/admin/approvals/{id}', [AdminController::class, 'trackApproval'])->name('admin.trackApproval');
+
+Route::get('/admin/approvals/{id}/approve', [AdminController::class, 'approveUser'])->name('admin.approveUser');
+
 Route::get('/admin/activeUsers', [AdminController::class, 'getActiveUsers'])->name('admin.activeUsers');
 
-Route::get('/admin/activeUsers/disabled', [AdminController::class, 'getDisableUsers'])->name('admin.disabledUsers');
+Route::get('/admin/disabledUsers', [AdminController::class, 'getDisableUsers'])->name('admin.disabledUsers');
+
+Route::get('/admin/activeUsers/{id}', [AdminController::class, 'trackUser'])->name('admin.trackUser');
 
 Route::get('/admin/patientHistory', [AdminController::class, 'getPatientHistory'])->name('admin.patientHistory');
+
+Route::get('/admin/patientHistory/no-show', [AdminController::class, 'noShowHistory'])->name('admin.noShow');
+
+Route::get('/admin/profile/edit/{id}', [AdminController::class, 'editProfile'])->name('admin.editProfile');
+
+Route::post('/admin/profile/update/{id}', [AdminController::class, 'updateProfile'])->name('admin.updateProfile');
 
 Route::get('/admin/profile', [AdminController::class, 'getProfile'])->name('admin.profile');
 
@@ -76,14 +89,16 @@ Route::get('/admin/appointments/reject/{id}', [AdminController::class, "rejectRe
 
 // patient
 
-Route::get('/patient/appointments/Calendar', [PatientController::class, 'getCalendar'])->name('patient.calendar');
-
 Route::get('/patient/reservations', [PatientController::class, 'getReservations'])->name('patient.reservations');
 
 Route::get('/patient/reservation/create', [PatientController::class, 'createReservations'])->name('patient.create');
 
-Route::post('/patient/reservation/create', [ReservationController::class, 'store']);
+Route::post('/patient/reservation/post', [ReservationController::class, 'store'])->name('patient.store');
 
 Route::get('/patient/patientHistory', [PatientController::class, 'getTreatmentHistory'])->name('patient.treatmentHistory');
 
 Route::get('/patient/profile', [PatientController::class, 'getProfile'])->name('patient.profile');
+
+Route::get('/patient/profile/edit/{id}', [PatientController::class, 'editProfile'])->name('patient.editProfile');
+
+Route::post('/patient/profile/update/{id}', [PatientController::class, 'updateProfile'])->name('patient.updateProfile');

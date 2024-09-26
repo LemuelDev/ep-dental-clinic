@@ -2,13 +2,32 @@ document.addEventListener('DOMContentLoaded', function () {
     const themeToggle = document.querySelector('.theme-controller');
     const sidebar = document.getElementById('sidebar');
 
+    // Function to add/remove the dark mode stylesheet for flatpickr
+    function toggleFlatpickrStylesheet(theme) {
+        const darkThemeLink = document.querySelector('#flatpickr-dark-theme');
+        if (theme === 'dark') {
+            if (!darkThemeLink) {
+                const link = document.createElement('link');
+                link.id = 'flatpickr-dark-theme';
+                link.rel = 'stylesheet';
+                link.type = 'text/css';
+                link.href = 'https://npmcdn.com/flatpickr/dist/themes/dark.css';
+                document.head.appendChild(link);
+            }
+        } else {
+            if (darkThemeLink) {
+                darkThemeLink.remove();
+            }
+        }
+    }
+
     // Check stored theme preference
     const storedTheme = localStorage.getItem('theme');
     if (storedTheme) {
         document.documentElement.setAttribute('data-theme', storedTheme);
         themeToggle.checked = storedTheme === 'dark';
-        // Apply the theme to the sidebar
         applyTheme(storedTheme);
+        toggleFlatpickrStylesheet(storedTheme); // Apply flatpickr theme
     }
 
     // Listen for the toggle change event
@@ -16,8 +35,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const theme = themeToggle.checked ? 'dark' : 'light';
         document.documentElement.setAttribute('data-theme', theme);
         localStorage.setItem('theme', theme);
-        // Apply the theme to the sidebar
         applyTheme(theme);
+        toggleFlatpickrStylesheet(theme); // Apply flatpickr theme
     });
 
     function applyTheme(theme) {

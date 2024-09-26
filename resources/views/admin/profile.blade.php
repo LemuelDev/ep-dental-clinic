@@ -24,19 +24,19 @@
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 ">
                             <div class="flex gap-4 justify-start items-center">
                                 <label for="">FirstName:</label>
-                                <input type="text" readonly value="John Lemuel" class=" bg-transparent rounded-lg shadow lg:px-10 px-4 py-3 text-left text-md w-full">
+                                <input type="text" readonly value="{{auth()->user()->userProfile->firstname}}" class=" bg-transparent rounded-lg shadow lg:px-10 px-4 py-3 text-left text-md w-full">
                             </div>
                             <div class="flex gap-4 justify-start items-center">
                                 <label for="">MiddleName:</label>
-                                <input type="text" readonly value="Echon" class="bg-transparent  rounded-lg shadow lg:px-10 px-4 py-3 text-left text-md w-full">
+                                <input type="text" readonly value="{{auth()->user()->userProfile->middlename}}" class="bg-transparent  rounded-lg shadow lg:px-10 px-4 py-3 text-left text-md w-full">
                             </div>
                             <div class="flex gap-4 justify-start items-center">
                                 <label for="">LastName:</label>
-                                <input type="text" readonly value="Encina" class="bg-transparent  rounded-lg shadow lg:px-10 px-4 py-3 text-left text-md w-full">
+                                <input type="text" readonly value="{{auth()->user()->userProfile->lastname}}" class="bg-transparent  rounded-lg shadow lg:px-10 px-4 py-3 text-left text-md w-full">
                             </div>
                             <div class="flex gap-4 justify-start items-center">
                                 <label for="">ExtensionName:</label>
-                                <input type="text" readonly value="" class="bg-transparent  rounded-lg shadow lg:px-10 px-4 py-3 text-left text-md w-full">
+                                <input type="text" readonly value="{{auth()->user()->userProfile->extensionname}}" class="bg-transparent  rounded-lg shadow lg:px-10 px-4 py-3 text-left text-md w-full">
                             </div>
                         </div>  
                     </div>
@@ -46,24 +46,43 @@
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 ">
                             <div class="flex gap-4 justify-start items-center">
                                 <label for="">Birthday:</label>
-                                <input type="text" readonly value="October 13, 2004" class=" bg-transparent rounded-lg shadow lg:px-10 px-4 py-3 text-left text-md w-full">
+                                <input type="text" readonly value="{{auth()->user()->userProfile->birthday}}" class=" bg-transparent rounded-lg shadow lg:px-10 px-4 py-3 text-left text-md w-full">
                             </div>
                             <div class="flex gap-4 justify-start items-center">
                                 <label for="">Age:</label>
-                                <input type="text" readonly value="19" class="bg-transparent  rounded-lg shadow lg:px-10 px-4 py-3 text-left text-md w-full">
+                                <input type="text" readonly value="{{auth()->user()->userProfile->age}}" class="bg-transparent  rounded-lg shadow lg:px-10 px-4 py-3 text-left text-md w-full">
                             </div>
                             <div class="flex gap-4 justify-start items-center">
                                 <label for="">Address:</label>
-                                <input type="text" readonly value="Binabalian Candelaria Zambales" class="bg-transparent  rounded-lg shadow px-4 w-full py-3 text-left text-md">
+                                <input type="text" readonly value="{{auth()->user()->userProfile->address}}" class="bg-transparent  rounded-lg shadow px-4 w-full py-3 text-left text-md">
                             </div>
                             <div class="flex gap-4 justify-start items-center">
                                 <label for="">Sex:</label>
-                                <input type="text" readonly value="Male" class="bg-transparent  rounded-lg shadow lg:px-10 px-4 py-3 text-left text-md w-full">
+                                <input type="text" readonly value="{{auth()->user()->userProfile->sex}}" class="bg-transparent  rounded-lg shadow lg:px-10 px-4 py-3 text-left text-md w-full">
                             </div>
                             <div class="flex justify-start items-center">
                                 <label for="" class="min-w-40">Phone Number:</label>
-                                <input type="text" readonly value="09475817672" class="bg-transparent  rounded-lg shadow lg:px-10 px-4 py-3 text-left text-md w-full">
+                                <input type="text" readonly value="{{auth()->user()->userProfile->phone_number}}" class="bg-transparent  rounded-lg shadow lg:px-10 px-4 py-3 text-left text-md w-full">
                             </div>
+                        </div>  
+                    </div>
+
+                    <div class="shadow-sm rounded-xl p-8">
+                        <h4 class="py-4 text-xl font-bold tracking-wide">Emergency Contact Information</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 ">
+                            <div class="flex gap-4 justify-start items-center">
+                                <label for="">Name:</label>
+                                <input type="text" readonly value="{{auth()->user()->userProfile->emergency_name}}" class=" bg-transparent rounded-lg shadow lg:px-10 px-4 py-3 text-left text-md w-full">
+                            </div>
+                            <div class="flex gap-4 justify-start items-center">
+                                <label for="">Contact Number:</label>
+                                <input type="text" readonly value="{{auth()->user()->userProfile->emergency_contact}}" class="bg-transparent  rounded-lg shadow lg:px-10 px-4 py-3 text-left text-md w-full">
+                            </div>
+                            <div class="flex gap-4 justify-start items-center">
+                                <label for="">Relationship:</label>
+                                <input type="text" readonly value="{{auth()->user()->userProfile->emergency_relationship}}" class="bg-transparent  rounded-lg shadow lg:px-10 px-4 py-3 text-left text-md w-full">
+                            </div>
+                           
                         </div>  
                     </div>
 
@@ -72,18 +91,18 @@
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 ">
                             <div class="flex gap-4 justify-start items-center">
                                 <label for="">Email:</label>
-                                <input type="text" readonly value="johnlemuelencina30@gmail.com" class=" bg-transparent rounded-lg shadow lg:px-10 px-4 py-3 text-left text-md w-full">
+                                <input type="text" readonly value="{{auth()->user()->userProfile->email}}" class=" bg-transparent rounded-lg shadow lg:px-10 px-4 py-3 text-left text-md w-full">
                             </div>
                             <div class="flex gap-4 justify-start items-center">
                                 <label for="">Username:</label>
-                                <input type="text" readonly value="jlencina30" class="bg-transparent  rounded-lg shadow lg:px-10 px-4 py-3 text-left text-md w-full">
+                                <input type="text" readonly value="{{auth()->user()->username}}" class="bg-transparent  rounded-lg shadow lg:px-10 px-4 py-3 text-left text-md w-full">
                             </div>
                            
                         </div>  
                     </div>
 
                     <div class="mx-auto px-4 w-full max-[520px]:max-w-[600px]  max-sm:flex-col flex gap-4 items-center justify-center py-8">
-                        <a href="" class="px-10 py-3 rounded-md text-center border-none text-lg text-white shadow bg-[#624E88] hover:bg-[#58457b]">Edit Profile</a>
+                        <a href="{{route("admin.editProfile", auth()->user()->userProfile->id)}}" class="px-10 py-3 rounded-md text-center border-none text-lg text-white shadow bg-[#624E88] hover:bg-[#58457b]">Edit Profile</a>
                         <a href="" class="px-10 py-3 rounded-md text-center border-none text-lg text-white shadow bg-red-700 hover:bg-red-800">Change Passsword</a>
                     </div>
                 

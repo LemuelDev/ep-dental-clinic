@@ -38,7 +38,7 @@ class PasswordResetController extends Controller
            return back()->withErrors(['email' => 'No user found with that email address.']);
        }
 
-    
+       
        // Create a password reset token
        $token = Str::random(30);
        $expiresAt = Carbon::now()->addMinutes(2); // Set token expiry to 60 minutes from now

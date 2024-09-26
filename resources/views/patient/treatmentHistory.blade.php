@@ -17,7 +17,7 @@
             <div class="container ">
                 <!-- Your main content goes here -->
                 <h1 class="text-3xl font-bold pb-4">Treatment History</h1>
-                {{-- @include('patient.tableApprovals')  --}}
+                @include('patient.tableAppointments') 
             </div>
                        
         </main>

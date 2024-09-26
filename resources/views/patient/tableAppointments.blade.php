@@ -18,16 +18,16 @@
       <tr>
         <td>You</td>
         <td>{{$reservation->treatment_choice}}</td>
-        <td  class="min-w-[190px]">{{$reservation->start->format('F j, Y')}}</td>
-        <td class="min-w-[170px]">{{$reservation->start->format('g:i A')}} - {{$reservation->end->format('g:i A')}}</td>
+        <td  class="min-w-[190px]">{{ \Carbon\Carbon::parse($reservation->timeSlots->date)->format('F j, Y') }}</td>
+        <td class="min-w-[170px]">{{$reservation->timeSlots->time_range}}</td>
         <td>{{$reservation->reservation_status}}</td>
         <td>
           <div class="flex items-center justify-center gap-2">
-              <a href="" class="text-white rounded-md px-4 py-3 bg-green-500 hover:bg-green-600 text-center whitespace-nowrap">Disable</a>
+              {{-- <a href="" class="text-white rounded-md px-4 py-3 bg-green-500 hover:bg-green-600 text-center whitespace-nowrap">VIEW</a> --}}
               <button class="delete-btn text-white py-3 px-6 bg-red-500 hover:bg-red-600 rounded-md"
                     data-file-id=""
                     data-toggle-modal="#deleteConfirmationModal">
-                DELETE
+                CANCEL
             </button>
             </div>
         </td>

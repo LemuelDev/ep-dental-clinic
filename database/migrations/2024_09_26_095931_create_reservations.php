@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('reservations', function (Blueprint $table) {
             $table->id();
-            $table->timestamp('start')->nullable();
-            $table->timestamp('end')->nullable();
-            $table->string('reservation_status')->default('pending');
+            $table->string('reservation_status')->default('approved');
             $table->string('treatment_choice');
-            $table->string("description_of_cancel");
+            $table->string("description_of_cancel")->nullable();
             $table->foreignId('userprofile_id')->constrained('userprofiles')->cascadeOnDelete();
+            $table->foreignId('time_slot_id')->constrained('time_slots')->cascadeOnDelete();
+            $table->foreignId('medicalhistory_table_id')->constrained('medicalhistory_tables')->cascadeOnDelete();
             $table->timestamps();
         });
     }

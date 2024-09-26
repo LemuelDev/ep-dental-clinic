@@ -18,11 +18,16 @@
                 <div class="flex max-sm:flex-col justify-center max-sm:gap-5 sm:justify-between items-center">
                     <h1 class="lg:text-3xl text-2xl font-bold ">Patient History</h1>
                           <!-- Status Filter -->
-                          <select name="filter-status" id="filter-status-history" class="py-2 px-5  bg-transparent shadow rounded-lg">
-                            <option  class="text-black" value="completed" {{$status == 'completed' ? 'selected' : ''}}>Completed</option>
-                            <option  class="text-black" value="rejected" {{$status == 'rejected' ? 'selected' : ''}}>Rejected</option>
-                            <option  class="text-black" value="no-show" {{$status == 'no-show' ? 'selected' : ''}}>No-show</option>
-                          </select>
+                    <div class="flex gap-4 items-center justify-center ">
+                        <form action="{{route("admin.patientHistory")}}" method="GET">
+                            <input type="text" placeholder="Search Name" name="search" class="px-4 py-2 rounded-lg shadow-md border border-gray-500 bg-transparent">
+                            <button class="py-3 px-6 rounded-lg bg-blue-500 text-white">Search</button>
+                        </form>
+                        <select name="filter-status" id="filter-status-history" class="py-2 px-5  bg-transparent shadow rounded-lg">
+                            <option  class="text-black" value="{{route('admin.patientHistory')}}" {{request()->route()->getName() === 'admin.patientHistory' ? 'selected' : ''}}>Completed</option>
+                            <option  class="text-black" value="{{route('admin.noShow')}}"  {{request()->route()->getName() === 'admin.noShow' ? 'selected' : ''}}>No-show</option>
+                        </select>
+                    </div>
       
                           <script>
                               const filterStatusHistory = document.getElementById('filter-status-history');
@@ -30,7 +35,7 @@
                               filterStatusHistory.addEventListener('change', function() {
                                   const selectedStatusValue = filterStatusHistory.value;
                                   // Redirect with both filter and status as query parameters
-                                  window.location.href = `/admin/patientHistory?status=${selectedStatusValue}`;
+                                  window.location.href = selectedStatusValue ;
                               });
       
                           </script>
